@@ -1,14 +1,42 @@
-# astrbot-plugin-helloworld
+# 洛克王国图鉴插件
 
-AstrBot 插件模板 / A template plugin for AstrBot plugin feature
+数据来源：https://wiki.biligame.com/rocom/%E9%A6%96%E9%A1%B5
 
-> [!NOTE]
-> This repo is just a template of [AstrBot](https://github.com/AstrBotDevs/AstrBot) Plugin.
-> 
-> [AstrBot](https://github.com/AstrBotDevs/AstrBot) is an agentic assistant for both personal and group conversations. It can be deployed across dozens of mainstream instant messaging platforms, including QQ, Telegram, Feishu, DingTalk, Slack, LINE, Discord, Matrix, etc. In addition, it provides a reliable and extensible conversational AI infrastructure for individuals, developers, and teams. Whether you need a personal AI companion, an intelligent customer support agent, an automation assistant, or an enterprise knowledge base, AstrBot enables you to quickly build AI applications directly within your existing messaging workflows.
+目前项目主要功能开发完毕，细节还在打磨
 
-# Supports
+# 使用方法
 
-- [AstrBot Repo](https://github.com/AstrBotDevs/AstrBot)
-- [AstrBot Plugin Development Docs (Chinese)](https://docs.astrbot.app/dev/star/plugin-new.html)
-- [AstrBot Plugin Development Docs (English)](https://docs.astrbot.app/en/dev/star/plugin-new.html)
+查询精灵信息
+
+```
+/精灵 精灵名称或序号
+```
+
+```
+/elf 精灵名称或序号
+```
+
+查询可以学习某技能的精灵
+
+```
+/skill 技能名
+```
+
+```
+/技能 技能名
+```
+
+加载数据
+
+```
+#覆盖原有数据
+/loaddata 1
+/加载数据 1
+```
+
+```
+#增量加载数据
+/loaddata 0
+/加载数据 0
+```
+
