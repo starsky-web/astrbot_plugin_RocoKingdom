@@ -33,9 +33,9 @@ def skill_info(elf):
     stone_names = ", ".join(s["skill_name"] for s in stone) if normal else "无"
     bloodline_names = ", ".join(s["skill_name"] for s in bloodline) if normal else "无"
     template = (
-        f"精灵编号: {elf["pet_number"]}\n"
-        f"精灵名称: {elf["name"]}\n"
-        f"精灵属性: {elf["element"]}\n"
+        f"精灵编号: {elf['pet_number']}\n"
+        f"精灵名称: {elf['name']}\n"
+        f"精灵属性: {elf['element']}\n"
         f"技能: {normal_names}\n"
         f"技能石: {stone_names}\n"
         f"血脉技能: {bloodline_names}\n"
