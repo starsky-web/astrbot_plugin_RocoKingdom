@@ -13,8 +13,8 @@ import os
 API_URL = "https://wiki.biligame.com/rocom/api.php"
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
 PAGE_LIMIT = 500  # API 请求限制
-MAX_RETRIES = 3   # 最大重试次数
-RETRY_DELAY = 3   # 重试间隔（秒）
+MAX_RETRIES = 3  # 最大重试次数
+RETRY_DELAY = 3  # 重试间隔（秒）
 
 # 数据库配置
 DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", "rocokingdom.db")
@@ -475,7 +475,6 @@ def run(clear_data_flag: bool = False):
         "pets_count": len(pets),
         "db_path": DB_PATH
     }
-
 
 # if __name__ == "__main__":
 #     # 直接运行时使用增量更新模式

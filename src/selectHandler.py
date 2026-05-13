@@ -42,7 +42,7 @@ def select_elf_by_id(pet_number: int) -> Optional[tuple]:
 
 def select_elf_by_name(pet_name: str) -> List[tuple]:
     """根据精灵名称获取详情（可能有多个同名精灵）"""
-    rows =  execute_query("SELECT * FROM pets WHERE name = ?", (pet_name,))
+    rows = execute_query("SELECT * FROM pets WHERE name = ?", (pet_name,))
     return rows[0] if rows else None
 
 
@@ -51,20 +51,26 @@ def select_skill_by_name(skill_name: str) -> Optional[tuple]:
     rows = execute_query("SELECT * FROM skills WHERE name = ?", (skill_name,))
     return rows[0] if rows else None
 
+
 def select_pet_by_skill_name(skill_name: str) -> List[tuple]:
     """根据技能名称获取拥有技能对应的精灵"""
-    rows = execute_query("select DISTINCT pets.name FROM pet_skills,pets where pet_skills.pet_id = pets.id and skill_name = ?" , (skill_name,))
+    rows = execute_query(
+        "select DISTINCT pets.name FROM pet_skills,pets where pet_skills.pet_id = pets.id and skill_name = ?",
+        (skill_name,))
     return rows
+
 
 def select_skill_normal(pet_id: str) -> List[tuple]:
     """根据精灵ID获取普通技能详情"""
     rows = execute_query("SELECT * FROM pet_skills WHERE pet_id = ? AND skill_type = 'normal'", (pet_id,))
     return rows
 
+
 def select_skill_stone(pet_id: str) -> List[tuple]:
     """根据精灵ID获取技能石技能详情"""
     rows = execute_query("SELECT * FROM pet_skills WHERE pet_id = ? AND skill_type = 'stone'", (pet_id,))
     return rows
+
 
 def select_skill_bloodline(pet_id: str) -> List[tuple]:
     """根据精灵ID获取血脉技能详情"""

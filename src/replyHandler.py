@@ -3,9 +3,11 @@ from .selectHandler import *
 
 """处理生成响应文本"""
 """在此调用sql，处理生成响应文本回到main.py"""
+
+
 def elf_info_by_id(elf_id):
     # logger.info("回复处理开始")
-    #精灵基本信息
+    # 精灵基本信息
     elf = select_elf_by_id(elf_id)
     # logger.info(elf)
     reply = skill_info(elf)
@@ -13,14 +15,15 @@ def elf_info_by_id(elf_id):
 
 
 def elf_info_by_name(elf_name):
-    #根据精灵名称查询
+    # 根据精灵名称查询
     # logger.info("回复处理开始")
-    #精灵基本信息
+    # 精灵基本信息
     elf = select_elf_by_name(elf_name)
     return skill_info(elf)
 
+
 def skill_info(elf):
-    #该类内部调用，用于给精灵信息拼接技能，生成最后回复
+    # 该类内部调用，用于给精灵信息拼接技能，生成最后回复
     # 三种技能列表
     stone = select_skill_stone(elf["id"])
     normal = select_skill_normal(elf["id"])
@@ -30,7 +33,6 @@ def skill_info(elf):
     stone_names = ", ".join(s["skill_name"] for s in stone) if normal else "无"
     bloodline_names = ", ".join(s["skill_name"] for s in bloodline) if normal else "无"
     template = (
-        # f"查询参数: {elf_id}\n"
         f"精灵编号: {elf["pet_number"]}\n"
         f"精灵名称: {elf["name"]}\n"
         f"精灵属性: {elf["element"]}\n"
