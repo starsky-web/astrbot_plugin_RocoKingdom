@@ -45,9 +45,15 @@ def skill_info(elf):
 
 def elf_list_by_skill(skill_name):
     elf = select_pet_by_skill_name(skill_name)
+    skill = select_skill_by_name(skill_name)
     logger.info(elf)
     elf_info = ", ".join(e["name"] for e in elf) if elf else "无"
     template = (
+        f"技能属性{skill['element']}\n"
+        f"威力{skill['power']}\n"
+        f"类型{skill['category']}\n"
+        f"费用{skill['energy_cost']}\n"
+        f"描述{skill['effect']}\n"
         f"拥有{skill_name}的精灵有\n"
         f"{elf_info}\n"
     )
